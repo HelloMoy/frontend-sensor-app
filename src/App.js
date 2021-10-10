@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Guest } from './Guest';
+import React, { useState } from 'react';
+import { BarGraph } from './BarGraph/';
 import { Layout, Menu } from 'antd';
 import {
   BrowserRouter as Router,
@@ -44,7 +44,7 @@ function App() {
                 </Menu.Item>
                 <Menu.Item key="2" icon={<DesktopOutlined />}>
                   <Link to="/guest">
-                    Guest
+                    BarGraph
                   </Link>
                 </Menu.Item>
                 <SubMenu key="sub1" icon={<UserOutlined />} title="User">
@@ -68,7 +68,7 @@ function App() {
               <Content style={{ margin: '0 16px' }} >
                 <h1>Hello World</h1>
                 <Switch>
-                  <Route path="/guest" component={Guest} />
+                  <Route path="/guest" component={BarGraph} />
                   <Redirect to="/" />
                 </Switch>
               </Content>
