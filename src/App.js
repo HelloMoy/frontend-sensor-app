@@ -1,17 +1,29 @@
 import React from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
+import { Sidebar } from './Sidebar/';
 import { RGBLedDashboard } from './RGBLedDashboard/';
+import './app.css';
 
 
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="main-wrapper">
       <SocketProvider>
-        <Header />
-        <RGBLedDashboard />
+        <header className="main-header">
+          <Header />
+        </header>
+        <nav className="main-navbar">
+
+          <Sidebar />
+        </nav>
+        <content className="main-dashboard">
+          <RGBLedDashboard />
+          <RGBLedDashboard />
+          <RGBLedDashboard />
+        </content>
       </SocketProvider>
     </div>
   );

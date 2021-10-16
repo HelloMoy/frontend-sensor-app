@@ -5,17 +5,17 @@ import menuLogo from '../assets/img/menu-logo.png';
 const Header = () => {
     return (
         <div>
-            <div class="nav-container">
-                <nav>
+            <div className="nav-container">
+                <nav className="grid-nav-container">
                     <input type="checkbox" id="nav-toggle" />
-                    <label for="nav-toggle" class="burger-menu">
-                        <img src={menuLogo} alt="burger menu" class="burger-menu-logo" />
+                    <label for="nav-toggle" className="burger-menu">
+                        <img src={menuLogo} alt="burger menu" className="burger-menu-logo" />
                     </label>
-                    <div class="left-menu">
-                        <a href="#">Simulation Mode</a>
-                        <a href="#">Hardware Mode</a>
+                    <div className="left-menu">
+                        <a >Simulation Mode</a>
+                        <a >Hardware Mode</a>
                     </div>
-                    <a href="#" class="logo">Sensor App</a>
+                    <a className="logo">Sensor App</a>
                 </nav>
             </div>
         </div>
