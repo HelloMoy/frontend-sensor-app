@@ -10,22 +10,26 @@ import './app.css';
 function App() {
 
   return (
-    <div className="main-wrapper">
-      <SocketProvider>
-        <header className="main-header">
+    <>
+      <div id="main-wrapper" className="div-wrapper">
+        <header className="header">
           <Header />
         </header>
-        <nav className="main-navbar">
-
+        <aside id="sidebar-element" className="sidebar">
           <Sidebar />
-        </nav>
-        <content className="main-dashboard">
-          <RGBLedDashboard />
-          <RGBLedDashboard />
-          <RGBLedDashboard />
-        </content>
-      </SocketProvider>
-    </div>
+        </aside>
+        <section className="content1">
+          <SocketProvider>
+            <RGBLedDashboard />
+            <RGBLedDashboard />
+            <RGBLedDashboard />
+          </SocketProvider>
+        </section>
+      </div>
+      <section id="sidebar-floating-button-container-id" className="sidebar-floating-button-container">
+        <span className="sidebar-floating-button">&#9776;</span>
+      </section>
+    </>
   );
 }
 
