@@ -1,7 +1,7 @@
 import React from 'react';
 import './sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({onHideSidebar}) => {
 
     return (
         <div className="main-sidebar">
@@ -10,7 +10,7 @@ const Sidebar = () => {
                 <p>Sensor</p>
                 <p>Ligth</p>
             </div>
-            <div id="hide-sidebar-icon" className="span-container">
+            <div className="span-container" onClick={onHideSidebar}>
                 <span>&#5176;</span>
             </div>
         </div>

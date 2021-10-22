@@ -36,12 +36,6 @@
   color: #9dcfff;
 }
 
-.hidden-sidebar-wrapper {
-  grid-template-areas:
-    "header header"
-    "content1 content1";
-}
-
 .div-wrapper .sidebar-display-none {
   display: none;
 }
@@ -72,11 +66,6 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .show-sidebar-wrapper {
-    grid-template-areas:
-      "header header"
-      "sidebar content1";
-  }
 
   .div-wrapper .show-sidebar-display-block {
     display: block;

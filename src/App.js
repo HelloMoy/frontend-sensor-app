@@ -1,22 +1,44 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
 import { RGBLedDashboard } from './RGBLedDashboard/';
+import { SidebarFloatinButton } from './SidebarFloatinButton/';
 import './app.css';
 
-
-
 function App() {
+  const refMainWrapper = useRef();
+  const refSidebar = useRef();
+  const refSidebarFloatingButton = useRef();
+
+  const onHideSidebar = () => {
+    refMainWrapper.current.classList.add('hidden-sidebar-wrapper');
+    refSidebar.current.classList.add('sidebar-display-none');
+    refSidebarFloatingButton.current.classList.add('show-sidebar-floating-button');
+
+    refMainWrapper.current.classList.remove('show-sidebar-wrapper');
+    refSidebar.current.classList.remove('show-sidebar-display-block');
+    refSidebarFloatingButton.current.classList.remove('hidden-sidebar-floating-button');
+  }
+
+  const onShowSidebar = () => {
+    refMainWrapper.current.classList.remove('hidden-sidebar-wrapper');
+    refSidebar.current.classList.remove('sidebar-display-none');
+    refSidebarFloatingButton.current.classList.remove('show-sidebar-floating-button');
+
+    refMainWrapper.current.classList.add('show-sidebar-wrapper');
+    refSidebar.current.classList.add('show-sidebar-display-block');
+    refSidebarFloatingButton.current.classList.add('hidden-sidebar-floating-button');
+  }
 
   return (
     <>
-      <div id="main-wrapper" className="div-wrapper">
+      <div className="div-wrapper" ref={refMainWrapper}>
         <header className="header">
           <Header />
         </header>
-        <aside id="sidebar-element" className="sidebar">
-          <Sidebar />
+        <aside className="sidebar" ref={refSidebar}>
+          <Sidebar onHideSidebar={onHideSidebar}/>
         </aside>
         <section className="content1">
           <SocketProvider>
@@ -26,18 +48,11 @@ function App() {
           </SocketProvider>
         </section>
       </div>
-      <section id="sidebar-floating-button-container-id" className="sidebar-floating-button-container">
-        <span className="sidebar-floating-button">&#9776;</span>
+      <section className="sidebar-floating-button-container" ref={refSidebarFloatingButton}>
+        <SidebarFloatinButton onShowSidebar={onShowSidebar} />
       </section>
     </>
   );
 }
 
-// {<Breadcrumb style={{ margin: '16px 0' }}>
-// <Breadcrumb.Item>User</Breadcrumb.Item>
-// <Breadcrumb.Item>Bill</Breadcrumb.Item>
-// </Breadcrumb>
-// <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-// Bill is a cat.
-// </div>}
 export default App;
