@@ -7,7 +7,7 @@ export const SocketContext = createContext();
 
 export const SocketProvider = ({ children }) => {
 
-    const { socket, online } = useSocket('http://localhost:8081');
+    const { socket, online } = useSocket('https://backend-sensor-app.herokuapp.com/');
     
     return (
         <SocketContext.Provider value={{ socket, online }}>
