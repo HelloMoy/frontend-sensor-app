@@ -1,42 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { SocketContext } from '../context/SocketContext';
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import './doughnutGraph.css'
 
-const DoughnutGraph = () => {
-    const [graphData, setGraphData] = useState();
-    const { socket } = useContext(SocketContext);
-
-    useEffect(() => {
-        socket.on('hey-frontend', (payload) => {
-            console.log(payload, 'Effect')
-            setGraphData(payload);
-        });
-
-        return () => {
-            socket.off('hey-frontend');
-        }
-    }, [socket]);
-
+const DoughnutGraph = ({ red, blue, yellow, green, purple, orange }) => {
 
     return (
         <div className="wrapper-graph-doughnut">
-            <div className="data-in-graph-doughnut">
-                {graphData && 
-                <div className="data">
-                <p>Red: {graphData.Red}</p>
-                <p>Blue: {graphData.Blue}</p>
-                <p>Green: {graphData.Green}</p>
-                </div>
-            }
-            </div>
             <div className="graph-doughnut">
                 <Doughnut
                     data={{
                         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                         datasets: [{
                             label: '# of Votes',
-                            data: (graphData ? [graphData.Red, graphData.Blue, graphData.Yellow, graphData.Green, graphData.Purple, graphData.Orange] : [0, 0, 0, 0, 0, 0]),
+                            data: [red, blue, yellow, green, purple, orange],
                             backgroundColor: [
                                 'rgb(255, 224, 230)',
                                 'rgb(215, 236, 251)',

@@ -1,13 +1,6 @@
 .grid-doughnut-graph{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-}
-
-.grid-doughnut-graph > div{
-    padding: 1em;
-}
-
-.grid-doughnut-graph > div:hover{
-    border: 1px solid red;
+    gap: 3rem;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }

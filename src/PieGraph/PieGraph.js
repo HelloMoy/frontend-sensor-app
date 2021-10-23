@@ -1,25 +1,8 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React from 'react';
 import './pieGraph.css';
-import { SocketContext } from '../context/SocketContext';
 import { Pie } from 'react-chartjs-2';
 
-const PieGraph = () => {
-
-    const [graphData, setGraphData] = useState();
-    const { socket } = useContext(SocketContext);
-
-
-
-    useEffect(() => {
-        socket.on('hey-frontend', (payload) => {
-            console.log(payload, 'Effect')
-            setGraphData(payload);
-        });
-
-        return () => {
-            socket.off('hey-frontend');
-        }
-    }, [socket]);
+const PieGraph = ({ red, blue, yellow, green, purple, orange }) => {
 
     return (
         <div>
@@ -29,7 +12,7 @@ const PieGraph = () => {
                         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                         datasets: [{
                             label: '# of Votes',
-                            data: (graphData ? [graphData.Red, graphData.Blue, graphData.Yellow, graphData.Green, graphData.Purple, graphData.Orange] : [0, 0, 0, 0, 0, 0]),
+                            data: [red, blue, yellow, green, purple, orange],
                             backgroundColor: [
                                 'rgb(255, 224, 230)',
                                 'rgb(215, 236, 251)',
@@ -58,4 +41,4 @@ const PieGraph = () => {
     )
 }
 
-export {PieGraph};
+export { PieGraph };

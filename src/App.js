@@ -43,8 +43,6 @@ function App() {
         <section className="content1">
           <SocketProvider>
             <RGBLedDashboard />
-            <RGBLedDashboard />
-            <RGBLedDashboard />
           </SocketProvider>
         </section>
       </div>

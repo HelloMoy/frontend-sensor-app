@@ -1,27 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { SocketContext } from '../context/SocketContext';
+import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import './BarGraph.css';
 
-const BarGraph = () => {
-    const [graphData, setGraphData] = useState();
-    const { socket } = useContext(SocketContext);
-
-
-
-    useEffect(() => {
-        socket.on('hey-frontend', (payload) => {
-            console.log(payload, 'Effect')
-            setGraphData(payload);
-        });
-
-        return () => {
-            socket.off('hey-frontend');
-        }
-    }, [socket]);
-
-
-
+const BarGraph = ({ red, blue, yellow, green, purple, orange }) => {
 
     return (
         <div>
@@ -31,7 +12,7 @@ const BarGraph = () => {
                         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                         datasets: [{
                             label: '# of Votes',
-                            data: (graphData ? [graphData.Red, graphData.Blue, graphData.Yellow, graphData.Green, graphData.Purple, graphData.Orange] : [0, 0, 0, 0, 0, 0]),
+                            data: [red, blue, yellow, green, purple, orange],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
