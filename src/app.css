@@ -5,6 +5,11 @@
   font-family: "Nunito", sans-serif;
 }
 
+.main-background {
+  background-color: #eef0f1 ;
+  height: calc(100vh - 10px);
+}
+
 .div-wrapper {
   width: 95%;
   margin: 10px auto;

@@ -32,13 +32,13 @@ export const RGBLedDashboard = () => {
 
     return (
         <div className="grid-doughnut-graph">
-            <div>
+            <div className="graph-element">
                 <PieGraph red={red} blue={blue} yellow={yellow} green={green} purple={purple} orange={orange} />
             </div>
-            <div>
+            <div className="graph-element">
                 <BarGraph red={red} blue={blue} yellow={yellow} green={green} purple={purple} orange={orange} />
             </div>
-            <div>
+            <div className="graph-element">
                 <DoughnutGraph red={red} blue={blue} yellow={yellow} green={green} purple={purple} orange={orange} />
             </div>
         </div>

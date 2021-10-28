@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
@@ -33,22 +33,24 @@ function App() {
 
   return (
     <>
-      <div className="div-wrapper" ref={refMainWrapper}>
-        <header className="header">
-          <Header />
-        </header>
-        <aside className="sidebar" ref={refSidebar}>
-          <Sidebar onHideSidebar={onHideSidebar}/>
-        </aside>
-        <section className="content1">
-          <SocketProvider>
-            <RGBLedDashboard />
-          </SocketProvider>
+      <div className="main-background">
+        <div className="div-wrapper" ref={refMainWrapper}>
+          <header className="header">
+            <Header />
+          </header>
+          <aside className="sidebar" ref={refSidebar}>
+            <Sidebar onHideSidebar={onHideSidebar} />
+          </aside>
+          <section className="content1">
+            <SocketProvider>
+              <RGBLedDashboard />
+            </SocketProvider>
+          </section>
+        </div>
+        <section className="sidebar-floating-button-container" ref={refSidebarFloatingButton}>
+          <SidebarFloatinButton onShowSidebar={onShowSidebar} />
         </section>
       </div>
-      <section className="sidebar-floating-button-container" ref={refSidebarFloatingButton}>
-        <SidebarFloatinButton onShowSidebar={onShowSidebar} />
-      </section>
     </>
   );
 }

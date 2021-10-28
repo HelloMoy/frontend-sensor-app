@@ -4,3 +4,9 @@
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
+
+.grid-doughnut-graph .graph-element {
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
