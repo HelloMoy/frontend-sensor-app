@@ -1,4 +1,5 @@
 import React from 'react';
+import {BACKEND} from '../environmentVariables'
 import { createContext } from 'react';
 import { useSocket } from '../hooks/useSocket'
 
@@ -7,8 +8,8 @@ export const SocketContext = createContext();
 
 export const SocketProvider = ({ children }) => {
 
-    const { socket, online } = useSocket('https://backend-sensor-app.herokuapp.com/');
-    
+    const { socket, online } = useSocket(BACKEND);
+    console.log(BACKEND);
     return (
         <SocketContext.Provider value={{ socket, online }}>
             { children }
