@@ -15,18 +15,18 @@ export const RGBLedDashboard = () => {
     const { socket } = useContext(SocketContext);
 
     useEffect(() => {
-        socket.on('hey-frontend', (payload) => {
+        socket.on('rgb_values', (payload) => {
             console.log(payload, 'Effect')
-            setRed(payload.Red);
-            setBlue(payload.Blue);
-            setYellow(payload.Yellow);
-            setGreen(payload.Green);
-            setPurple(payload.Purple);
-            setOrange(payload.Orange);
+            setRed(payload.rgbValues.red);
+            setBlue(payload.rgbValues.blue);
+            setYellow(0);
+            setGreen(payload.rgbValues.green);
+            setPurple(0);
+            setOrange(0);
         });
 
         return () => {
-            socket.off('hey-frontend');
+            socket.off('rgb_values');
         }
     }, [socket]);
 
