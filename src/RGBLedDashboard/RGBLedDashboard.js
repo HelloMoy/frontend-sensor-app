@@ -4,7 +4,6 @@ import { BarGraph } from '../BarGraph/';
 import { DoughnutGraph } from '../DoughnutGraph/';
 import { PieGraph } from '../PieGraph/';
 import { LineChart } from '../LineChart/';
-import { MultipleLineChart } from '../MultipleLineChart/';
 import './rgbLedDashboard.css';
 
 export const RGBLedDashboard = () => {
@@ -44,16 +43,56 @@ export const RGBLedDashboard = () => {
                 <DoughnutGraph red={red} green={green} blue={blue} />
             </div>
             <div className="graph-element">
-            <LineChart colorvalues = { redPackage } label = "Red" backgroundColor = "rgb(255, 99, 132)" borderColor = "rgba(255, 99, 132, 0.2)" />
+                <LineChart dataLineChart={[
+                    {
+                        colorvalues: redPackage,
+                        label: "Red",
+                        backgroundColor: "rgb(255, 99, 132)",
+                        borderColor: "rgba(255, 99, 132, 0.2)"
+                    }
+                ]} />
             </div>
             <div className="graph-element">
-            <LineChart colorvalues = { greenPackage } label = "Green" backgroundColor = "rgba(75, 192, 192, 1)" borderColor = "rgb(219, 242, 242)" />
+                <LineChart dataLineChart={[
+                    {
+                        colorvalues: greenPackage,
+                        label: "Green",
+                        backgroundColor: "rgba(75, 192, 192, 1)",
+                        borderColor: "rgb(219, 242, 242)"
+                    }
+                ]} />
             </div>
             <div className="graph-element">
-            <LineChart colorvalues = { bluePackage } label = "Blue" backgroundColor = "rgba(54, 162, 235, 1)" borderColor = "rgb(215, 236, 251)" />
+                <LineChart dataLineChart={[
+                    {
+                        colorvalues: bluePackage,
+                        label: "Blue",
+                        backgroundColor: "rgba(54, 162, 235, 1)",
+                        borderColor: "rgb(215, 236, 251)"
+                    }
+                ]} />
             </div>
             <div className="graph-element">
-            <MultipleLineChart redColorvalues={redPackage} greenColorvalues={greenPackage} blueColorvalues={bluePackage}  />
+                <LineChart dataLineChart={[
+                    {
+                        colorvalues: redPackage,
+                        label: "Red",
+                        backgroundColor: "rgb(255, 99, 132)",
+                        borderColor: "rgba(255, 99, 132, 0.2)"
+                    },
+                    {
+                        colorvalues: greenPackage,
+                        label: "Green",
+                        backgroundColor: "rgba(75, 192, 192, 1)",
+                        borderColor: "rgb(219, 242, 242)"
+                    },
+                    {
+                        colorvalues: bluePackage,
+                        label: "Blue",
+                        backgroundColor: "rgba(54, 162, 235, 1)",
+                        borderColor: "rgb(215, 236, 251)"
+                    }
+                ]} />
             </div>
         </div>
     )
