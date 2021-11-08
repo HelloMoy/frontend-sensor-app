@@ -1,0 +1,21 @@
+.value-card-container {
+    height: 100%;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value-card-container .value-card {
+    font-size: 70px;
+    color: rgb(112, 107, 107);
+    width: auto;
+}
+
+.value-card-container .color-element {
+    border-radius: 100%;
+    border: solid 3px;
+    height: 30px;
+    width: 30px;
+}

@@ -4,6 +4,7 @@ import { BarGraph } from '../BarGraph/';
 import { DoughnutGraph } from '../DoughnutGraph/';
 import { PieGraph } from '../PieGraph/';
 import { LineChart } from '../LineChart/';
+import { ValueCard } from '../ValueCard/';
 import './rgbLedDashboard.css';
 
 export const RGBLedDashboard = () => {
@@ -93,6 +94,27 @@ export const RGBLedDashboard = () => {
                         borderColor: "rgb(215, 236, 251)"
                     }
                 ]} />
+            </div>
+
+            <div className="graph-element">
+                <ValueCard
+                    colorValue={red}
+                    borderColor={'rgb(255, 99, 132)'}
+                    backgroundColor={'rgb(255, 224, 230)'} />
+            </div>
+
+            <div className="graph-element">
+                <ValueCard
+                    colorValue={green}
+                    borderColor={'rgba(75, 192, 192, 1)'}
+                    backgroundColor={'rgb(219, 242, 242)'} />
+            </div>
+
+            <div className="graph-element">
+                <ValueCard
+                    colorValue={blue}
+                    borderColor={'rgb(54, 162, 235)'}
+                    backgroundColor={'rgb(215, 236, 251)'} />
             </div>
         </div>
     )
