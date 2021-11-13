@@ -1,12 +1,27 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './header.css';
 
-const Header = () => {
+const Header = ({ setVersionType }) => {
     return (
         <div className="main-header">
             <div className="header-content">
-                <p>Simulation Version</p>
-                <p>Hardware Version</p>
+                <Link
+                    to="/simulation-version"
+                    className="text-decoration-none"
+                >
+                    <p onClick={() => setVersionType('simulation-version')}>
+                        Simulation Version
+                    </p>
+                </Link>
+                <Link
+                    to="/hardware-version"
+                    className="text-decoration-none"
+                >
+                    <p onClick={() => setVersionType('hardware-version')}>
+                        Hardware Version
+                    </p>
+                </Link>
             </div>
             <div className="header-title">Sensor App</div>
         </div>

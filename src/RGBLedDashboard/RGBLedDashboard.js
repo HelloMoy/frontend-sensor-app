@@ -17,8 +17,7 @@ export const RGBLedDashboard = () => {
     const { socket } = useContext(SocketContext);
 
     useEffect(() => {
-        socket.on('rgb_values', (payload) => {
-            console.log(payload, 'Effect');
+        socket.on('values', (payload) => {
             setRed(payload.lastRgbColorValue.red);
             setBlue(payload.lastRgbColorValue.blue);
             setGreen(payload.lastRgbColorValue.green);
@@ -28,7 +27,7 @@ export const RGBLedDashboard = () => {
         });
 
         return () => {
-            socket.off('rgb_values');
+            socket.off('values');
         }
     }, [socket]);
 
@@ -118,4 +117,4 @@ export const RGBLedDashboard = () => {
             </div>
         </div>
     )
-}
+};

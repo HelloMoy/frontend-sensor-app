@@ -11,7 +11,7 @@
 .header .main-header .header-title {
   font-size: 50px;
   color: white;
-  user-select: none; 
+  user-select: none;
 }
 
 .header .main-header .header-content {
@@ -27,7 +27,7 @@
   border-radius: 10px;
   padding: 5px;
   cursor: pointer;
-  user-select: none; 
+  user-select: none;
 }
 
 .header .main-header .header-content p:hover {
@@ -35,7 +35,7 @@
   background-color: white;
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1000px) {
   .main-header {
     padding: 0 40px;
   }
@@ -45,13 +45,13 @@
     min-width: 226px;
     margin-left: 20px;
   }
-  
+
   .header .main-header .header-content {
     width: auto;
     display: flex;
     justify-content: space-between;
   }
-  
+
   .header .main-header .header-content p {
     text-align: center;
     margin-right: 15px;
@@ -59,7 +59,7 @@
   }
 }
 
-@media only screen and (max-width: 570px){
+@media only screen and (max-width: 570px) {
   .main-header {
     padding: 0 10px;
   }
@@ -71,7 +71,7 @@
     text-align: center;
     margin-left: auto;
   }
-  
+
   .header .main-header .header-content p {
     margin-right: 15px;
     width: auto;

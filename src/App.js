@@ -1,12 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
 import { RGBLedDashboard } from './RGBLedDashboard/';
 import { SidebarFloatinButton } from './SidebarFloatinButton/';
+import { TemperatureAndHumidityDashboard } from './TemperatureAndHumidityDashboard/';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './app.css';
 
 function App() {
+  const [versionType, setVersionType] = useState('');
+
   const refMainWrapper = useRef();
   const refSidebar = useRef();
   const refSidebarFloatingButton = useRef();
@@ -33,24 +37,35 @@ function App() {
 
   return (
     <>
-      <div className="main-background">
-        <div className="div-wrapper" ref={refMainWrapper}>
-          <header className="header">
-            <Header />
-          </header>
-          <aside className="sidebar" ref={refSidebar}>
-            <Sidebar onHideSidebar={onHideSidebar} />
-          </aside>
-          <section className="content1">
-            <SocketProvider>
-              <RGBLedDashboard />
-            </SocketProvider>
+      <Router>
+        <div className="main-background">
+          <div className="div-wrapper" ref={refMainWrapper}>
+            <header className="header">
+              <Header versionType={versionType} setVersionType={setVersionType} />
+            </header>
+            <aside className="sidebar" ref={refSidebar}>
+              <Sidebar onHideSidebar={onHideSidebar} versionType={versionType}/>
+            </aside>
+            <section className="content1">
+
+              <Switch>
+                
+              <SocketProvider>
+                <Route path="/hardware-version/led">
+                    <RGBLedDashboard />
+                </Route>
+                <Route path="/hardware-version/sensor">
+                    <TemperatureAndHumidityDashboard />
+                </Route>
+                </SocketProvider>
+              </Switch>
+            </section>
+          </div>
+          <section className="sidebar-floating-button-container" ref={refSidebarFloatingButton}>
+            <SidebarFloatinButton onShowSidebar={onShowSidebar} />
           </section>
         </div>
-        <section className="sidebar-floating-button-container" ref={refSidebarFloatingButton}>
-          <SidebarFloatinButton onShowSidebar={onShowSidebar} />
-        </section>
-      </div>
+      </Router>
     </>
   );
 }
