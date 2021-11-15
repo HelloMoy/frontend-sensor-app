@@ -1,7 +1,7 @@
 import React from "react";
 import './valueCard.css';
 
-const ValueCard = ({ colorValue, borderColor, backgroundColor }) => {
+const ValueCard = ({ dataValue, borderColor, backgroundColor }) => {
     return (
         <>
             <div className="value-card-container">
@@ -14,7 +14,7 @@ const ValueCard = ({ colorValue, borderColor, backgroundColor }) => {
                 >
                 </div>
                 <div className="value-card">
-                    {colorValue}
+                    {dataValue}
                 </div>
             </div>
         </>

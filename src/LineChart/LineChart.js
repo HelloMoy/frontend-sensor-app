@@ -1,15 +1,15 @@
 import React from "react";
 import { Line } from 'react-chartjs-2';
 
-const LineChart = ({ dataLineChart }) => {
+const LineChart = ({ LineChartValues }) => {
 
-    const datasets = dataLineChart.map((lineChartColor) => (
+    const datasets = LineChartValues.map((LineChartValue) => (
         {
-            label: lineChartColor.label,
-            data: [...lineChartColor.colorvalues],
+            label: LineChartValue.label,
+            data: [...LineChartValue.datavalues],
             fill: false,
-            backgroundColor: lineChartColor.backgroundColor,
-            borderColor: lineChartColor.borderColor,
+            backgroundColor: LineChartValue.backgroundColor,
+            borderColor: LineChartValue.borderColor,
             tension: 0.3
         }));
 

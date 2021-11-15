@@ -24,7 +24,20 @@ const TemperatureAndHumidityDashboard = () => {
     return (
         <div className="grid-doughnut-graph">
             <div className="graph-element">
-                <PieGraph red={temperature} green={humidity} blue={0} />
+            <PieGraph PieChartValues={[
+                    {
+                        data: temperature,
+                        label: "Temperature",
+                        borderColor: "rgb(255, 99, 132)",
+                        backgroundColor: "rgba(255, 99, 132, 0.2)"
+                    },
+                    {
+                        data: humidity,
+                        label: "Humidity",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        backgroundColor: "rgb(219, 242, 242)"
+                    }
+                ]} />
             </div>
         </div>
     )
