@@ -1,15 +1,29 @@
-.grid-doughnut-graph{
+.rgb-led-dashboard{
     display: grid;
     gap: 3rem;
     grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
 
-.grid-doughnut-graph .graph-element {
+.rgb-led-dashboard .graph-element {
     background-color: white;
-    border-radius: 10px;
-    padding-bottom: 10px;
+    border-radius: 1rem;
+    padding-bottom: 1rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.rgb-led-dashboard .graph-element .graph-element-header{
+    width: 100%;
+    text-align: center;
+    border-bottom: #eef0f1 solid 0.3rem;
+    font-size: 1.5rem;
+    color: #939494;
+}
+
+.rgb-led-dashboard .graph-element .graph-element-content{
+    height: 100%;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }

@@ -4,16 +4,24 @@ import './sidebar.css';
 
 const Sidebar = ({ onHideSidebar, versionType }) => {
 
+    let linkCssStyle = {};
+    let paragraphCssStyle = {};
+
+    if (!versionType) {
+        linkCssStyle = { 'pointerEvents': 'none' };
+        paragraphCssStyle = { 'backgroundColor': 'rgba(110, 110, 110, 0.466)' };
+    }
+
     return (
-        <div className="main-sidebar">
+        <div style={paragraphCssStyle} className="main-sidebar">
             <div className="sidebar-options">
-                <Link to={`/${versionType}/led`} className="text-decoration-none">
+                <Link style={linkCssStyle} to={`/${versionType}/led`} className="text-decoration-none">
                     <p>Led</p>
                 </Link>
-                <Link to={`/${versionType}/sensor`} className="text-decoration-none">
+                <Link style={linkCssStyle} to={`/${versionType}/sensor`} className="text-decoration-none">
                     <p>Sensor</p>
                 </Link>
-                <Link to={`/${versionType}`} className="text-decoration-none">
+                <Link style={linkCssStyle} to={`/${versionType}`} className="text-decoration-none">
                     <p>Ligth</p>
                 </Link>
             </div>
