@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { SocketContext } from '../context/SocketContext';
 import { DoughnutGraph } from '../DoughnutGraph/';
 import { PieGraph } from '../PieGraph/';
+import { BarGraph } from '../BarGraph/';
 import { ValueCard } from '../ValueCard/';
 import './temperatureAndHumidityDashboard.css';
 
@@ -34,14 +35,14 @@ const TemperatureAndHumidityDashboard = () => {
                         {
                             data: temperature,
                             label: "Temperature",
-                            borderColor: "rgb(255, 99, 132)",
-                            backgroundColor: "rgba(255, 99, 132, 0.2)"
+                            borderColor: "rgb(0, 181, 255)",
+                            backgroundColor: "rgba(0, 181, 255, 0.2)"
                         },
                         {
                             data: humidity,
                             label: "Humidity",
-                            borderColor: "rgba(75, 192, 192, 1)",
-                            backgroundColor: "rgb(219, 242, 242)"
+                            borderColor: "rgb(255, 1, 223)",
+                            backgroundColor: "rgba(255, 1, 223, 0.2)"
                         }
                     ]} />
                 </div>
@@ -56,14 +57,14 @@ const TemperatureAndHumidityDashboard = () => {
                         {
                             data: temperature,
                             label: "Temperature",
-                            borderColor: "rgb(255, 99, 132)",
-                            backgroundColor: "rgba(255, 99, 132, 0.2)"
+                            borderColor: "rgb(0, 181, 255)",
+                            backgroundColor: "rgba(0, 181, 255, 0.2)"
                         },
                         {
                             data: humidity,
                             label: "Humidity",
-                            borderColor: "rgba(75, 192, 192, 1)",
-                            backgroundColor: "rgb(219, 242, 242)"
+                            borderColor: "rgb(255, 1, 223)",
+                            backgroundColor: "rgba(255, 1, 223, 0.2)"
                         }
                     ]} />
                 </div>
@@ -76,8 +77,9 @@ const TemperatureAndHumidityDashboard = () => {
                 <div className="graph-element-content">
                     <ValueCard
                         dataValue={temperature}
-                        borderColor={'rgb(255, 99, 132)'}
-                        backgroundColor={'rgb(255, 224, 230)'} />
+                        borderColor={'rgb(0, 181, 255)'}
+                        backgroundColor={'rgba(0, 181, 255, 0.2)'}
+                    />
                 </div>
             </div>
 
@@ -88,8 +90,32 @@ const TemperatureAndHumidityDashboard = () => {
                 <div className="graph-element-content">
                     <ValueCard
                         dataValue={humidity}
-                        borderColor={'rgba(75, 192, 192, 1)'}
-                        backgroundColor={'rgb(219, 242, 242)'} />
+                        borderColor={'rgb(255, 1, 223)'}
+                        backgroundColor={'rgba(255, 1, 223, 0.2)'}
+                    />
+                </div>
+            </div>
+            <div className="graph-element">
+                <div className="graph-element-header">
+                    Temperature and Humidity Bar Graph
+                </div>
+                <div className="graph-element-content">
+                    <BarGraph BarChartValues={[
+                        {
+                            data: temperature,
+                            label: "Temperature",
+                            borderColor: "rgb(0, 181, 255)",
+                            backgroundColor: "rgba(0, 181, 255, 0.2)"
+                        },
+                        {
+                            data: humidity,
+                            label: "Humidity",
+                            borderColor: "rgb(255, 1, 223)",
+                            backgroundColor: "rgba(255, 1, 223, 0.2)"
+                        }
+                    ]}
+                        label=""
+                    />
                 </div>
             </div>
         </div>
