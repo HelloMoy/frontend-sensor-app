@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
+import { MainHardwareMode } from './MainHardwareVersion/';
 import { RGBLedDashboard } from './RGBLedDashboard/';
 import { SidebarFloatinButton } from './SidebarFloatinButton/';
 import { TemperatureAndHumidityDashboard } from './TemperatureAndHumidityDashboard/';
@@ -49,6 +50,9 @@ function App() {
             <section className="content1">
 
               <Switch>
+              <Route path="/hardware-version" exact>
+                    <MainHardwareMode />
+                </Route>
                 
               <SocketProvider>
                 <Route path="/hardware-version/led">

@@ -32,7 +32,7 @@
   background-color: white;
 }
 
-.main-sidebar .span-container:hover > span {
+.main-sidebar .span-container:hover>span {
   color: #9dcfff;
 }
 
