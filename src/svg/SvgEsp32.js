@@ -2,8 +2,17 @@ import React from "react";
 
 const SvgEsp32 = ({ className }) => {
     return (
-        <svg className={className} width="100%" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528.000000 712.000000" preserveAspectRatio="xMidYMid meet">
-            <g transform="translate(0.000000,712.000000) scale(0.100000,-0.100000)" stroke="none">
+        <svg
+            className={className}
+            width="100%"
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 528.000000 712.000000"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <g
+                transform="translate(0.000000,712.000000) scale(0.100000,-0.100000)"
+                stroke="none">
                 <path d="M830 7106 c-321 -60 -585 -257 -729 -543 -32 -65 -71 -188 -87 -277
 -21 -123 -21 -5231 1 -5354 31 -177 103 -332 224 -484 132 -165 358 -292 593
 -333 66 -12 199 -15 656 -15 l573 0 32 -36 c56 -65 46 -64 577 -64 531 0 521
