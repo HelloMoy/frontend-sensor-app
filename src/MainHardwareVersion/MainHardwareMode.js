@@ -1,7 +1,9 @@
 import React from "react";
 import { SvgEsp32 } from '../svg/SvgEsp32';
 import { SvgEsp32Horizontal } from '../svg/SvgEsp32Horizontal';
+import { Link } from "react-router-dom";
 import './mainHardwareMode.css';
+
 const MainHardwareMode = () => {
     return (
         <div className="main-hardware-mode-container">
@@ -26,8 +28,12 @@ const MainHardwareMode = () => {
                     Choose one of the available modes
                 </p>
                 <div className="hardware-mode-button-container">
-                    <p>Led</p>
-                    <p>Sensor</p>
+                    <Link  to={`/hardware-version/led`} className="text-decoration-none link-p">
+                        <p>Led</p>
+                    </Link>
+                    <Link to={`/hardware-version/sensor`} className="text-decoration-none">
+                        <p>Sensor</p>
+                    </Link>
                 </div>
             </div>
             <div className="hardware-mode-main-image-container">

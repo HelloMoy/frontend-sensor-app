@@ -11,7 +11,7 @@ const Header = ({ setVersionType }) => {
                     className="text-decoration-none"
                 >
                     <p onClick={() => setVersionType('simulation-version')}>
-                        Simulation Version
+                        Simulation Mode
                     </p>
                 </Link>
                 <Link
@@ -19,7 +19,7 @@ const Header = ({ setVersionType }) => {
                     className="text-decoration-none"
                 >
                     <p onClick={() => setVersionType('hardware-version')}>
-                        Hardware Version
+                        Hardware Mode
                     </p>
                 </Link>
             </div>

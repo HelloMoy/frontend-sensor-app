@@ -45,6 +45,7 @@
 .hardware-mode-text-container .hardware-mode-button-container {
     display: flex;
     margin-top: 2rem;
+    justify-content: space-around;
 }
 
 .hardware-mode-text-container .hardware-mode-button-container p {
@@ -52,13 +53,11 @@
     font-size: 1.5rem;
     padding: 0.5rem;
     width: 15rem;
-    margin: 0 auto;
     margin-bottom: 1.5rem;
     border: 0.2rem solid #706B6B;
     border-radius: 1rem;
     color: #706B6B;
     cursor: pointer;
-    user-select: none;
 }
 
 .hardware-mode-text-container .hardware-mode-button-container p:hover {
