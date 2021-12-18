@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './button.css';
 
-function Button({linkTo, fontColor, backgroundColor, children}) {
+function Button({linkTo, fontColor, backgroundColor, width, children}) {
     const [isMouseOver, setIsMouseOver] = useState(false);
 
     const inLineStyleParagraph = {
         'color': isMouseOver ? backgroundColor : fontColor,
         'backgroundColor': isMouseOver ? fontColor : backgroundColor,
         'border': `0.2rem solid ${fontColor}`,
+        'width': width,
         'textAlign': 'center',
         'fontSize': '1.5rem',
         'padding': '0.5rem',
-        'width': '15rem',
         'borderRadius': '1rem',
         'cursor': 'pointer'
     }

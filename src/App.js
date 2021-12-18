@@ -45,22 +45,22 @@ function App() {
               <Header versionType={versionType} setVersionType={setVersionType} />
             </header>
             <aside className="sidebar" ref={refSidebar}>
-              <Sidebar onHideSidebar={onHideSidebar} versionType={versionType}/>
+              <Sidebar onHideSidebar={onHideSidebar} versionType={versionType} />
             </aside>
             <section className="content1">
 
               <Switch>
-              <Route path="/hardware-version" exact>
-                    <MainHardwareMode />
+                <Route path="/hardware-version" exact>
+                  <MainHardwareMode />
                 </Route>
-                
-              <SocketProvider>
-                <Route path="/hardware-version/led">
+
+                <SocketProvider>
+                  <Route path="/hardware-version/led">
                     <RGBLedDashboard />
-                </Route>
-                <Route path="/hardware-version/sensor">
+                  </Route>
+                  <Route path="/hardware-version/sensor">
                     <TemperatureAndHumidityDashboard />
-                </Route>
+                  </Route>
                 </SocketProvider>
               </Switch>
             </section>

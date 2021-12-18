@@ -28,10 +28,18 @@ const MainHardwareMode = () => {
                     Choose one of the available modes
                 </p>
                 <div className="hardware-mode-button-container">
-                    <Button linkTo='/hardware-version/led' fontColor='#706B6B' backgroundColor='white'>
+                    <Button
+                        linkTo='/hardware-version/led'
+                        fontColor='#706B6B'
+                        backgroundColor='white'
+                        width='15rem'>
                         Led
                     </Button>
-                    <Button linkTo='/hardware-version/sensor' fontColor='#706B6B' backgroundColor='white'>
+                    <Button
+                        linkTo='/hardware-version/sensor'
+                        fontColor='#706B6B'
+                        backgroundColor='white'
+                        width='15rem'>
                         Sensor
                     </Button>
                 </div>
