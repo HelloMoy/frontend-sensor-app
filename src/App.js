@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './app.css';
 
 function App() {
-  const [versionType, setVersionType] = useState('');
 
   const refMainWrapper = useRef();
   const refSidebar = useRef();
@@ -42,23 +41,23 @@ function App() {
         <div className="main-background">
           <div className="div-wrapper" ref={refMainWrapper}>
             <header className="header">
-              <Header versionType={versionType} setVersionType={setVersionType} />
+              <Header />
             </header>
             <aside className="sidebar" ref={refSidebar}>
-              <Sidebar onHideSidebar={onHideSidebar} versionType={versionType} />
+              <Sidebar onHideSidebar={onHideSidebar} />
             </aside>
             <section className="content1">
 
               <Switch>
-                <Route path="/hardware-version" exact>
+                <Route path="/hardware-mode" exact>
                   <MainHardwareMode />
                 </Route>
 
                 <SocketProvider>
-                  <Route path="/hardware-version/led">
+                  <Route path="/hardware-mode/led">
                     <RGBLedDashboard />
                   </Route>
-                  <Route path="/hardware-version/sensor">
+                  <Route path="/hardware-mode/sensor">
                     <TemperatureAndHumidityDashboard />
                   </Route>
                 </SocketProvider>

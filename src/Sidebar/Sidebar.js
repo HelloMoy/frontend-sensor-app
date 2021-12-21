@@ -1,26 +1,25 @@
 import React from 'react';
-import { Button } from '../Button/';
+import { NavLink, useLocation } from 'react-router-dom';
 import './sidebar.css';
 
-const Sidebar = ({ onHideSidebar, versionType }) => {
+const Sidebar = ({ onHideSidebar }) => {
+    const currentPath = useLocation();
+
+    let modeFromPath;
+    if (currentPath.pathname.includes('hardware-mode'))
+        modeFromPath = 'hardware-mode';
+    else if (currentPath.pathname.includes('simulation-mode'))
+        modeFromPath = 'simulation-mode';
 
     return (
         <div className="main-sidebar">
             <div className="sidebar-options">
-                <Button
-                    linkTo={`/${versionType}/led`}
-                    fontColor='white'
-                    backgroundColor='#9dcfff'
-                    width='15rem'>
+                <NavLink to={modeFromPath ? `/${modeFromPath}/led` : '/'}>
                     Led
-                </Button>
-                <Button
-                    linkTo={`/${versionType}/sensor`}
-                    fontColor='white'
-                    backgroundColor='#9dcfff'
-                    width='15rem'>
+                </NavLink>
+                <NavLink to={modeFromPath ? `/${modeFromPath}/sensor` : '/'}>
                     Sensor
-                </Button>
+                </NavLink>
             </div>
             <div className="span-container" onClick={onHideSidebar}>
                 <span>&#5176;</span>
