@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
+import { MainSimulationMode } from './MainSimulationMode/';
 import { MainHardwareMode } from './MainHardwareVersion/';
 import { RGBLedDashboard } from './RGBLedDashboard/';
 import { SidebarFloatinButton } from './SidebarFloatinButton/';
@@ -52,6 +53,9 @@ function App() {
                 <Route path="/hardware-mode" exact>
                   <MainHardwareMode />
                 </Route>
+                <Route path="/simulation-mode" exact>
+                  <MainSimulationMode />
+                </Route>
 
                 <SocketProvider>
                   <Route path="/hardware-mode/led">
@@ -59,6 +63,12 @@ function App() {
                   </Route>
                   <Route path="/hardware-mode/sensor">
                     <TemperatureAndHumidityDashboard />
+                  </Route>
+                  <Route path="/simulation-mode/led">
+                    <h1>In Development</h1>
+                  </Route>
+                  <Route path="/simulation-mode/sensor">
+                    <h1>In Development</h1>
                   </Route>
                 </SocketProvider>
               </Switch>

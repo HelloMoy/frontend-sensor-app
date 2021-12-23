@@ -1,27 +1,26 @@
-import React from "react";
-import { SvgEsp32 } from '../svg/SvgEsp32';
-import { SvgEsp32Horizontal } from '../svg/SvgEsp32Horizontal';
+import React from 'react';
+import { SvgRandomNumber } from '../svg/SvgRandomNumber';
 import { Button } from "../Button/";
-import './mainHardwareMode.css';
+import './mainSimulationMode.css';
 
-const MainHardwareMode = () => {
+const MainSimulationMode = () => {
     return (
         <div className="main-hardware-mode-container">
             <div className="hardware-mode-text-container">
                 <h1 className="hardware-mode-title">
-                    Hardware Mode
+                    Simulation Mode
                 </h1>
                 <div className="hardware-mode-horizontal-image-container">
                     <div className="hardware-mode-horizontal-svg">
-                        <SvgEsp32Horizontal className="hardware-mode-horizontal-svg-esp32" />
+                        <SvgRandomNumber className="hardware-mode-horizontal-svg-esp32" />
                     </div>
                 </div>
                 <div className="hardware-mode-description-container">
                     <p className="hardware-mode-text">
-                        Here you will be able to visualize the data in real time that the ESP32 microcontroller sends.
+                        Here you will be able to visualize the randomly generated data.
                     </p>
                     <p className="hardware-mode-text">
-                        Remember that in this mode it is necessary to have the microcontroller with the electronic components required for its operation.
+                        Remember that in this mode it is not necessary to have a microcontroller, since the data is generated randomly.
                     </p>
                 </div>
                 <p className="hardware-mode-button-title">
@@ -29,14 +28,14 @@ const MainHardwareMode = () => {
                 </p>
                 <div className="hardware-mode-button-container">
                     <Button
-                        linkTo='/hardware-mode/led'
+                        linkTo='/simulation-mode/led'
                         fontColor='#706B6B'
                         backgroundColor='white'
                         width='15rem'>
                         Led
                     </Button>
                     <Button
-                        linkTo='/hardware-mode/sensor'
+                        linkTo='/simulation-mode/sensor'
                         fontColor='#706B6B'
                         backgroundColor='white'
                         width='15rem'>
@@ -46,11 +45,11 @@ const MainHardwareMode = () => {
             </div>
             <div className="hardware-mode-main-image-container">
                 <div className="hardware-mode-svg">
-                    <SvgEsp32 className="hardware-mode-svg-esp32" />
+                    <SvgRandomNumber className="hardware-mode-svg-esp32" />
                 </div>
             </div>
         </div >
-    )
+    );
 };
 
-export { MainHardwareMode };
+export { MainSimulationMode };

@@ -26,8 +26,13 @@ export const RGBLedDashboard = () => {
             setBluePackage(payload.rgbColorsValuesPackages.blue);
         });
 
+        socket.on('random-data', (payload) => {
+            console.log({payload})
+        });
+
         return () => {
             socket.off('values');
+            socket.off('random-data');
         }
     }, [socket]);
 

@@ -14,7 +14,6 @@ const TemperatureAndHumidityDashboard = () => {
 
     useEffect(() => {
         socket.on('values', (payload) => {
-            console.log(payload)
             seTemperature(payload.temperatureAndHumidityValues.temperature);
             setHumidity(payload.temperatureAndHumidityValues.humidity);
         });
