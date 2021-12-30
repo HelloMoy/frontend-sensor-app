@@ -7,7 +7,7 @@ import { LineChart } from '../LineChart/';
 import { ValueCard } from '../ValueCard/';
 import './rgbLedDashboard.css';
 
-export const RGBLedDashboard = () => {
+export const RGBLedDashboard = ({ socketName }) => {
     const [red, setRed] = useState(0);
     const [green, setGreen] = useState(0);
     const [blue, setBlue] = useState(0);
@@ -17,24 +17,19 @@ export const RGBLedDashboard = () => {
     const { socket } = useContext(SocketContext);
 
     useEffect(() => {
-        socket.on('values', (payload) => {
-            setRed(payload.lastRgbColorValue.red);
-            setBlue(payload.lastRgbColorValue.blue);
-            setGreen(payload.lastRgbColorValue.green);
-            setRedPackage(payload.rgbColorsValuesPackages.red);
-            setGreenPackage(payload.rgbColorsValuesPackages.green);
-            setBluePackage(payload.rgbColorsValuesPackages.blue);
-        });
-
-        socket.on('random-data', (payload) => {
-            console.log({payload})
-        });
+            socket.on(socketName, (payload) => {
+                setRed(payload.lastRgbColorValue.red);
+                setBlue(payload.lastRgbColorValue.blue);
+                setGreen(payload.lastRgbColorValue.green);
+                setRedPackage(payload.rgbColorsValuesPackages.red);
+                setGreenPackage(payload.rgbColorsValuesPackages.green);
+                setBluePackage(payload.rgbColorsValuesPackages.blue);
+            });
 
         return () => {
-            socket.off('values');
-            socket.off('random-data');
+                socket.off(socketName);
         }
-    }, [socket]);
+    }, [socket, socketName]);
 
     return (
         <div className="rgb-led-dashboard">

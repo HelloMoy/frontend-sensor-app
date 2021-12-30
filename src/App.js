@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
@@ -12,9 +12,9 @@ import './app.css';
 
 function App() {
 
-    const [mainWrapperClass, setMainWrapperClass] = useState('');
-    const [sidebarClass, setSidebarClass] = useState('');
-    const [sidebarFloatingButtonClass, setSidebarFloatingButtonClass] = useState('');
+  const [mainWrapperClass, setMainWrapperClass] = useState('');
+  const [sidebarClass, setSidebarClass] = useState('');
+  const [sidebarFloatingButtonClass, setSidebarFloatingButtonClass] = useState('');
 
   const onHideSidebar = () => {
     setMainWrapperClass('hidden-sidebar-wrapper');
@@ -50,17 +50,17 @@ function App() {
                 </Route>
 
                 <SocketProvider>
-                  <Route path="/hardware-mode/led">
-                    <RGBLedDashboard />
-                  </Route>
-                  <Route path="/hardware-mode/sensor">
-                    <TemperatureAndHumidityDashboard />
-                  </Route>
                   <Route path="/simulation-mode/led">
-                    <h1>In Development</h1>
+                    <RGBLedDashboard socketName={'random-data'}/>
                   </Route>
                   <Route path="/simulation-mode/sensor">
-                    <h1>In Development</h1>
+                  <TemperatureAndHumidityDashboard socketName={'random-data'}/>
+                  </Route>
+                  <Route path="/hardware-mode/led">
+                    <RGBLedDashboard socketName={'values'}/>
+                  </Route>
+                  <Route path="/hardware-mode/sensor">
+                    <TemperatureAndHumidityDashboard socketName={'values'}/>
                   </Route>
                 </SocketProvider>
               </Switch>

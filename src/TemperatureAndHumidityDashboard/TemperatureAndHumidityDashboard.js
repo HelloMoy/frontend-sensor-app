@@ -6,22 +6,22 @@ import { BarGraph } from '../BarGraph/';
 import { ValueCard } from '../ValueCard/';
 import './temperatureAndHumidityDashboard.css';
 
-const TemperatureAndHumidityDashboard = () => {
+const TemperatureAndHumidityDashboard = ({ socketName }) => {
 
     const [temperature, seTemperature] = useState(0);
     const [humidity, setHumidity] = useState(0);
     const { socket } = useContext(SocketContext);
 
     useEffect(() => {
-        socket.on('values', (payload) => {
-            seTemperature(payload.temperatureAndHumidityValues.temperature);
-            setHumidity(payload.temperatureAndHumidityValues.humidity);
-        });
+            socket.on(socketName, (payload) => {
+                seTemperature(payload.temperatureAndHumidityValues.temperature);
+                setHumidity(payload.temperatureAndHumidityValues.humidity);
+            });
 
         return () => {
-            socket.off('values');
+                socket.off(socketName);
         }
-    }, [socket]);
+    }, [socket, socketName]);
 
     return (
         <div className="rgb-led-dashboard">
