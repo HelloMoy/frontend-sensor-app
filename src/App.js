@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SocketProvider } from './context/SocketContext';
 import { Header } from './Header/';
 import { Sidebar } from './Sidebar/';
+import { Home } from './Home/';
 import { MainSimulationMode } from './MainSimulationMode/';
 import { MainHardwareMode } from './MainHardwareVersion/';
 import { RGBLedDashboard } from './RGBLedDashboard/';
@@ -47,6 +48,9 @@ function App() {
                 </Route>
                 <Route path="/simulation-mode" exact>
                   <MainSimulationMode />
+                </Route>
+                <Route path="/" exact>
+                  <Home />
                 </Route>
 
                 <SocketProvider>

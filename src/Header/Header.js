@@ -9,7 +9,9 @@ const Header = () => {
                 <NavLink to="/simulation-mode">Simulation Mode</NavLink>
                 <NavLink to="/hardware-mode">Hardware Mode</NavLink>
             </div>
-            <div className="header-title">Sensor App</div>
+            <div className="header-title">
+                <NavLink to="/"> Sensor App</NavLink>
+            </div>
         </div>
     )
 }

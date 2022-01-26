@@ -8,10 +8,10 @@
   align-items: center;
 }
 
-.header .main-header .header-title {
+.header .main-header .header-title a{
   font-size: 50px;
   color: white;
-  user-select: none;
+  text-decoration: none;
 }
 
 .header .main-header .header-content {
@@ -49,7 +49,7 @@
     padding: 0 40px;
   }
 
-  .header .main-header .header-title {
+  .header .main-header .header-title a {
     font-size: 40px;
     min-width: 226px;
     margin-left: 20px;
@@ -68,12 +68,13 @@
   }
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 646px) {
   .main-header {
     padding: 0 10px;
+    text-align: center;
   }
 
-  .header .main-header .header-title {
+  .header .main-header .header-title a {
     font-size: 30px;
     min-width: auto;
     width: auto;
@@ -81,7 +82,7 @@
     margin-left: auto;
   }
 
-  .header .main-header .header-content p {
+  .header .main-header .header-content a {
     margin-right: 15px;
     width: auto;
   }
